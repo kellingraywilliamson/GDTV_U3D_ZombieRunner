@@ -70,6 +70,7 @@ namespace StarterAssets
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
+		private Weapon _weapon;
 
 		private const float _threshold = 0.01f;
 
@@ -86,6 +87,7 @@ namespace StarterAssets
 		{
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
+			_weapon = GetComponentInChildren<Weapon>();
 
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
@@ -130,6 +132,10 @@ namespace StarterAssets
 			}
 		}
 
+		private void OnFire(InputValue value)
+		{
+			_weapon.OnFire(value);
+		}
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
