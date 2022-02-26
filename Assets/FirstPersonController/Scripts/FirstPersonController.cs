@@ -132,10 +132,6 @@ namespace StarterAssets
 			}
 		}
 
-		private void OnFire(InputValue value)
-		{
-			_weapon.OnFire(value);
-		}
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
